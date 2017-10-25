@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <script src="http://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <script>
+    let $ = require("jquery");
+    let resortNames = ['vail', 'keystonresort', 'beavercreek', 'breckenridge', 'whistlerblackomb', 'parkcitymountain', 'skiheavenly', 'northstarcalifornia', 'kirkwood'];
+    let tails = ['<resort_name>.com/plan-your-trip/lift-access/tickets', '<resort_name>.com/plan-your-trip/lift-access/tickets', '<resort_name>.com/plan-your-trip/stay/vail-lodging', '<resort_name>.com/plan-your-trip/ski-and-ride-lessons.aspx',
+      '.com/plan-your-trip/ski-and-ride-lessons/category/child.aspx', '.com/plan-your-trip/ski-and-ride-lessons/category/adult.aspx', '.com/plan-your-trip/ski-and-ride-lessons/category/private.aspx',
+      '.com/plan-your-trip/ski-and-ride-lessons/category/adaptive.aspx', '.com/plan-your-trip/ski-and-ride-lessons/category/skiyoungernow.aspx', '.com/plan-your-trip/ski-and-ride-lessons/category/focusedlearning.aspx',
+      '<resort_name>.com/plan-your-trip/ski-and-ride-lessons/search-results.aspx', '<resort_name>.com/plan-your-trip/ski-and-ride-lessons/products/Child-6-Pack-Ski-Lesson-Ages-3-4', '<resort_name>.com/plan-your-trip/stay/vail-lodging.aspx',
+      '<resort_name>.com/plan-your-trip/stay/lodging-results.aspx', '<resort_name>.com/plan-your-trip/stay/lodging-details.aspx', '<resort_name>.com/plan-your-trip/stay/vail-vacation-deals.aspx', '<resort_name>.com/cart.aspx',
+      '<resort_name>.com/cart/login.aspx'
+    ]
+
+    function checkUrl() {
+      let builtUrl = [];
+      for (var i = 0; i < resortNames.length; i++) {
+        for (var i = 0; i < tails.length; i++) {
+          builtUrl.push(resortNames[i] + tails[i].replace(/<resort_name>/, ''));
+
+          $.ajax({
+            url: builtUrl,
+            dataType: 'text',
+            type: 'GET',
+            complete: function(xhr, textStatus) {
+              console.log(xhr.status);
+            }
+          })
+        }
+      }
+      console.log(builtUrl);
+    }
+
+    checkUrl();
+  </script>
+</body>
+
+</html>
