@@ -4,7 +4,8 @@ let tails = ['<resort_name>.com/plan-your-trip/lift-access/tickets', '<resort_na
 funtion checkUrl(){
   for (var i = 0; i < resortNames.length; i++) {
     for (var i = 0; i < tails.length; i++) {
-      resortNames[i] + tails[i]
+      let builtUrl = resortNames[i] + tails[i].replace(/<resort_name>/g, '');
     }
   }
+  return
 }
