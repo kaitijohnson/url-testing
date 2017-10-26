@@ -12,7 +12,7 @@
 <body>
   <script>
     let resortNames = ['vail', 'keystonresort', 'beavercreek', 'breckenridge', 'whistlerblackomb', 'parkcitymountain', 'skiheavenly', 'northstarcalifornia', 'kirkwood'];
-    let tails = ['<resort_name>.com/plan-your-trip/lift-access/tickets', '<resort_name>.com/plan-your-trip/lift-access/tickets', '<resort_name>.com/plan-your-trip/stay/vail-lodging', '<resort_name>.com/plan-your-trip/ski-and-ride-lessons.aspx',
+    let tails = ['<resort_name>.com/plan-your-trip/lift-access/tickets', '<resort_name>.com/plan-your-trip/stay/vail-lodging', '<resort_name>.com/plan-your-trip/ski-and-ride-lessons.aspx',
       '.com/plan-your-trip/ski-and-ride-lessons/category/child.aspx', '.com/plan-your-trip/ski-and-ride-lessons/category/adult.aspx', '.com/plan-your-trip/ski-and-ride-lessons/category/private.aspx',
       '.com/plan-your-trip/ski-and-ride-lessons/category/adaptive.aspx', '.com/plan-your-trip/ski-and-ride-lessons/category/skiyoungernow.aspx', '.com/plan-your-trip/ski-and-ride-lessons/category/focusedlearning.aspx',
       '<resort_name>.com/plan-your-trip/ski-and-ride-lessons/search-results.aspx', '<resort_name>.com/plan-your-trip/ski-and-ride-lessons/products/Child-6-Pack-Ski-Lesson-Ages-3-4', '<resort_name>.com/plan-your-trip/stay/vail-lodging.aspx',
@@ -21,7 +21,6 @@
     ]
 
     function checkUrl() {
-      // let builtUrl = [];
       let pass = 0;
       let fail = 0;
       for (var i = 0; i < resortNames.length; i++) {
@@ -41,11 +40,11 @@
               else{
                 pass += 1;
               }
+              console.log("PASS: ", pass, "FAIL: ", fail)
             }
           })
         }
       }
-      // console.log('URLs: ', builtUrl);
     }
 
     checkUrl();
